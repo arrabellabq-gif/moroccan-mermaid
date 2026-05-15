@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chaimaa — UGC Creator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=5" />
+</head>
+<body>
+
+  <!-- EDITOR TOOLBAR (only you see this when editing locally) -->
+  <div class="editor-toolbar" id="editorToolbar">
+    <button class="ed-btn" id="edToggle">✎ Edit</button>
+    <button class="ed-btn ed-save" id="edSave" hidden>✓ Save</button>
+    <button class="ed-btn ed-reset" id="edReset" hidden>↺ Reset</button>
+    <span class="ed-status" id="edStatus" hidden></span>
+  </div>
+
+  <!-- Hidden file input used for image uploads -->
+  <input type="file" id="edFileInput" accept="image/*" hidden />
+
+  <!-- NAV -->
+  <nav class="nav">
+    <span class="nav-logo" data-edit="nav-logo">MOROCCAN MERMAID</span>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#niches">Content</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-text" aria-hidden="true">CHAIMAA</div>
+    <div class="hero-content">
+      <p class="hero-eyebrow" data-edit="hero-eyebrow">UGC Content Creator</p>
+      <h1 class="hero-title" data-edit="hero-title">
+        She walks<br /><em>like art.</em>
+      </h1>
+      <p class="hero-sub" data-edit="hero-sub">Beauty · Lifestyle · Wellness · Fashion</p>
+      <a href="#contact" class="btn">Work With Me</a>
+    </div>
+    <div class="hero-marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>MOROCCAN MERMAID</span>
+        <span class="dot">·</span>
+        <span>UGC CREATOR</span>
+        <span class="dot">·</span>
+        <span>BEAUTY</span>
+        <span class="dot">·</span>
+        <span>LIFESTYLE</span>
+        <span class="dot">·</span>
+        <span>WELLNESS</span>
+        <span class="dot">·</span>
+        <span>FASHION</span>
+        <span class="dot">·</span>
+        <span>MOROCCAN MERMAID</span>
+        <span class="dot">·</span>
+        <span>UGC CREATOR</span>
+        <span class="dot">·</span>
+        <span>BEAUTY</span>
+        <span class="dot">·</span>
+        <span>LIFESTYLE</span>
+        <span class="dot">·</span>
+        <span>WELLNESS</span>
+        <span class="dot">·</span>
+        <span>FASHION</span>
+        <span class="dot">·</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="container about-grid">
+      <div class="about-label">
+        <span class="section-tag">— About</span>
+      </div>
+      <div class="about-body">
+        <h2 class="section-title" data-edit="about-title">
+          My love for beauty<br />runs <em>deep.</em>
+        </h2>
+        <p class="about-text" data-edit="about-p1">
+          It goes far beyond appearance. It is a quiet power, a source of confidence,
+          a reflection of how I move through life.
+        </p>
+        <p class="about-text" data-edit="about-p2">
+          I have explored countless products and invested deeply in myself to bring you
+          something real — honest, unfiltered experiences with every brand I have tested,
+          across beauty, hair, skincare, and the art of perfumery, where my journey
+          speaks for itself.
+        </p>
+
+        <div class="about-meta">
+          <div class="meta-item">
+            <span class="meta-label">Creator</span>
+            <span class="meta-value" data-edit="meta-creator">Chaimaa Abdessamad</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Based In</span>
+            <span class="meta-value" data-edit="meta-based">Dubai, UAE</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Specialty</span>
+            <span class="meta-value" data-edit="meta-specialty">Luxury Beauty UGC</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AREAS OF MASTERY -->
+  <section class="niches" id="niches">
+    <div class="container">
+      <p class="section-tag">— Specialties</p>
+      <h2 class="section-title center" data-edit="niches-title">Areas of Mastery</h2>
+      <div class="niches-grid niches-grid-5">
+
+        <div class="niche-card" data-index="01">
+          <div class="niche-icon">◈</div>
+          <h3 data-edit="niche-1-title">Skincare</h3>
+          <p data-edit="niche-1-desc">Korean, European, and American formulations, reviewed across every skin type.</p>
+        </div>
+
+        <div class="niche-card" data-index="02">
+          <div class="niche-icon">◇</div>
+          <h3 data-edit="niche-2-title">Makeup</h3>
+          <p data-edit="niche-2-desc">From everyday looks to luxury palettes — techniques, hacks, and honest reviews.</p>
+        </div>
+
+        <div class="niche-card" data-index="03">
+          <div class="niche-icon">❖</div>
+          <h3 data-edit="niche-3-title">Fragrance</h3>
+          <p data-edit="niche-3-desc">A perfume collector's perspective on rare and signature scents.</p>
+        </div>
+
+        <div class="niche-card" data-index="04">
+          <div class="niche-icon">✷</div>
+          <h3 data-edit="niche-4-title">Haircare</h3>
+          <p data-edit="niche-4-desc">Routines, treatments, and product expertise across every hair type.</p>
+        </div>
+
+        <div class="niche-card" data-index="05">
+          <div class="niche-icon">✦</div>
+          <h3 data-edit="niche-5-title">Wellness</h3>
+          <p data-edit="niche-5-desc">Vitamins, supplements, and the lifestyle that supports beauty.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section class="portfolio" id="portfolio">
+    <div class="container">
+      <p class="section-tag">— Portfolio</p>
+      <h2 class="section-title center" data-edit="portfolio-title">My Work</h2>
+      <div class="portfolio-grid" id="portfolioGrid">
+        <!-- Pictures load here automatically from content.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="container contact-inner">
+      <p class="section-tag">— Let's Create</p>
+      <h2 class="contact-title" data-edit="contact-title">
+        Ready to tell<br /><em>your story?</em>
+      </h2>
+      <p class="contact-sub" data-edit="contact-sub">
+        I'm open to brand collaborations, gifted partnerships, and paid UGC projects.<br />
+        Let's make something people actually feel.
+      </p>
+      <a href="mailto:shamaabdassamad@gmail.com" class="btn btn-light">
+        Get in Touch
+      </a>
+      <div class="contact-socials">
+        <a href="https://instagram.com/ugc_by_chama" target="_blank" rel="noopener">
+          Instagram
+        </a>
+      </div>
+    </div>
+    <div class="contact-footer">
+      <span>© 2026 Chaimaa · UGC Creator</span>
+      <span>Moroccan Mermaid</span>
+    </div>
+  </section>
+
+  <script src="content.js?v=5"></script>
+  <script src="script.js?v=5"></script>
+  <script src="editor.js?v=5"></script>
+</body>
+</html>
