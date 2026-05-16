@@ -4,6 +4,34 @@
 // ═══════════════════════════════════════════════════════════════
 
 (function () {
+  // ═══ PRIVATE EDIT MODE ═══
+  // Editor toolbar only shows if URL has ?edit=mermaid (or localhost).
+  // Once unlocked, it remembers for this browser.
+  const SECRET = 'mermaid';
+  const UNLOCK_KEY = 'mm-editor-unlocked';
+  const params = new URLSearchParams(location.search);
+  if (params.get('edit') === SECRET) {
+    localStorage.setItem(UNLOCK_KEY, '1');
+  } else if (params.get('edit') === 'off') {
+    localStorage.removeItem(UNLOCK_KEY);
+  }
+  const isLocalhost = ['localhost', '127.0.0.1'].includes(location.hostname);
+  const isUnlocked = localStorage.getItem(UNLOCK_KEY) === '1' || isLocalhost;
+
+  // If not unlocked, hide the toolbar entirely + still apply published content/texts, then exit.
+  if (!isUnlocked) {
+    const toolbar = document.getElementById('editorToolbar');
+    if (toolbar) toolbar.style.display = 'none';
+    // Still apply published portfolioTexts so the public site shows latest text
+    const baselineTexts = (typeof portfolioTexts !== 'undefined') ? portfolioTexts : {};
+    document.querySelectorAll('[data-edit]').forEach(el => {
+      const key = el.getAttribute('data-edit');
+      if (baselineTexts[key] != null) el.innerHTML = baselineTexts[key];
+    });
+    return;
+  }
+  // ═══ end private gate ═══
+
   const DB_NAME = 'ugcPortfolio';
   const STORE = 'data';
   const STATE_KEY = 'state';
