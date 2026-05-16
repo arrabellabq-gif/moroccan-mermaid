@@ -5,8 +5,9 @@
 
 (function () {
   // ═══ PRIVATE EDIT MODE ═══
-  // Editor toolbar only shows if URL has ?edit=mermaid (or localhost).
-  // Once unlocked, it remembers for this browser.
+  // Unlock by clicking the "MOROCCAN MERMAID" logo 5 times quickly.
+  // Also unlocks via ?edit=mermaid URL or on localhost.
+  // To lock again: visit with ?edit=off
   const SECRET = 'mermaid';
   const UNLOCK_KEY = 'mm-editor-unlocked';
   const params = new URLSearchParams(location.search);
@@ -17,6 +18,25 @@
   }
   const isLocalhost = ['localhost', '127.0.0.1'].includes(location.hostname);
   const isUnlocked = localStorage.getItem(UNLOCK_KEY) === '1' || isLocalhost;
+
+  // SECRET CLICK TRIGGER on logo: click 5x within 4 seconds to unlock
+  (function attachSecretClick() {
+    const logo = document.querySelector('.nav-logo');
+    if (!logo) return;
+    logo.style.cursor = 'pointer';
+    let clicks = 0;
+    let timer = null;
+    logo.addEventListener('click', () => {
+      clicks++;
+      if (timer) clearTimeout(timer);
+      timer = setTimeout(() => { clicks = 0; }, 4000);
+      if (clicks >= 5) {
+        localStorage.setItem(UNLOCK_KEY, '1');
+        alert('✨ Edit Mode unlocked! Reloading…');
+        location.reload();
+      }
+    });
+  })();
 
   // If not unlocked, hide the toolbar entirely + still apply published content/texts, then exit.
   if (!isUnlocked) {
