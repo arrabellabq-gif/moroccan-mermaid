@@ -691,6 +691,7 @@ body.editing .portfolio-add { display: flex; }
 }
 .ed-btn.ed-publish:hover { background: var(--cream); }
 
+.ed-modal[hidden] { display: none !important; }
 .ed-modal {
   position: fixed;
   inset: 0;
