@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=5" />
+  <link rel="stylesheet" href="style.css?v=6" />
 </head>
 <body>
 
@@ -15,8 +15,39 @@
   <div class="editor-toolbar" id="editorToolbar">
     <button class="ed-btn" id="edToggle">✎ Edit</button>
     <button class="ed-btn ed-save" id="edSave" hidden>✓ Save</button>
+    <button class="ed-btn ed-publish" id="edPublish" hidden>🌐 Publish</button>
     <button class="ed-btn ed-reset" id="edReset" hidden>↺ Reset</button>
     <span class="ed-status" id="edStatus" hidden></span>
+  </div>
+
+  <!-- PUBLISH MODAL -->
+  <div class="ed-modal" id="edModal" hidden>
+    <div class="ed-modal-inner">
+      <h2>🌐 Publish to Live Site</h2>
+      <p class="ed-modal-sub">Your edits are saved on your computer. To put them on the public website, follow these 2 steps:</p>
+
+      <div class="ed-step">
+        <span class="ed-step-num">1</span>
+        <div class="ed-step-body">
+          <strong>Download the update file</strong>
+          <p>Click the button below — a file called <code>content.js</code> will save to your Downloads folder.</p>
+          <button class="ed-btn ed-step-btn" id="edDownload">⬇ Download content.js</button>
+        </div>
+      </div>
+
+      <div class="ed-step">
+        <span class="ed-step-num">2</span>
+        <div class="ed-step-body">
+          <strong>Send it to Claude</strong>
+          <p>In your chat with Claude, type: <em>"I'm publishing my edits"</em> and attach the downloaded <code>content.js</code> file (or just drag-and-drop it into the chat).</p>
+          <p class="ed-step-note">Claude will push it to your live site in seconds. ✨</p>
+        </div>
+      </div>
+
+      <div class="ed-modal-actions">
+        <button class="ed-btn ed-modal-close" id="edModalClose">Close</button>
+      </div>
+    </div>
   </div>
 
   <!-- Hidden file input used for image uploads -->
@@ -191,8 +222,8 @@
     </div>
   </section>
 
-  <script src="content.js?v=5"></script>
-  <script src="script.js?v=5"></script>
-  <script src="editor.js?v=5"></script>
+  <script src="content.js?v=6"></script>
+  <script src="script.js?v=6"></script>
+  <script src="editor.js?v=6"></script>
 </body>
 </html>

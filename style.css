@@ -682,3 +682,127 @@ body.editing .portfolio-add { display: flex; }
   grid-template-columns: none;
   gap: 0;
 }
+
+/* ═══ Publish button + modal ═══ */
+.ed-btn.ed-publish {
+  background: var(--gold);
+  color: var(--black);
+  border-color: var(--gold);
+}
+.ed-btn.ed-publish:hover { background: var(--cream); }
+
+.ed-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  animation: edFade 0.25s ease;
+}
+@keyframes edFade { from { opacity: 0; } to { opacity: 1; } }
+
+.ed-modal-inner {
+  background: var(--dark);
+  border: 1px solid var(--gold-dim);
+  border-radius: 16px;
+  max-width: 560px;
+  width: 100%;
+  padding: 2.5rem;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+}
+
+.ed-modal-inner h2 {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: var(--white);
+  margin-bottom: 0.6rem;
+}
+
+.ed-modal-sub {
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.ed-step {
+  display: flex;
+  gap: 1.1rem;
+  align-items: flex-start;
+  padding: 1.2rem 0;
+  border-top: 1px solid var(--border);
+}
+.ed-step:first-of-type { padding-top: 0.5rem; }
+
+.ed-step-num {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.ed-step-body { flex: 1; }
+.ed-step-body strong {
+  display: block;
+  color: var(--white);
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+.ed-step-body p {
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.6;
+  margin-bottom: 0.7rem;
+}
+.ed-step-body code {
+  background: rgba(200,169,126,0.12);
+  color: var(--gold);
+  padding: 1px 8px;
+  border-radius: 4px;
+  font-family: 'SF Mono', Monaco, monospace;
+  font-size: 0.82rem;
+}
+.ed-step-body em {
+  color: var(--cream);
+  font-style: italic;
+}
+
+.ed-step-btn {
+  margin-top: 0.4rem;
+  background: var(--gold);
+  color: var(--black);
+  border-color: var(--gold);
+}
+.ed-step-btn:hover { background: var(--cream); }
+
+.ed-step-note {
+  color: var(--gold) !important;
+  font-style: italic;
+  margin-top: 0.6rem !important;
+}
+
+.ed-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+.ed-modal-close {
+  border-color: var(--border);
+  color: var(--muted);
+}

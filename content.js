@@ -36,3 +36,6 @@ const portfolioItems = [
   },
 
 ];
+
+// Text overrides — empty by default. Edit Mode "Publish" fills this in.
+const portfolioTexts = {};
